@@ -1,0 +1,14 @@
+body{
+    background-color: #e7e7e7;
+    /* background-image:url("/images/wave.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat; */
+}
+
+.wrapper { 
+    background-color: #ffffff00;
+    margin: 0 auto;
+    min-height: 250vh;
+    font: 18px/1.5 sans-serif; 
+}
