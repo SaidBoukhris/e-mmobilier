@@ -62,6 +62,11 @@ class Bien
      */
     private $photo;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Energie::class, inversedBy="bien")
+     */
+    private $energie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +176,18 @@ class Bien
     public function setPhoto(?string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getEnergie(): ?Energie
+    {
+        return $this->energie;
+    }
+
+    public function setEnergie(?Energie $energie): self
+    {
+        $this->energie = $energie;
 
         return $this;
     }

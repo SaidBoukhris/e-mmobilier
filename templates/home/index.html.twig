@@ -10,14 +10,24 @@
         <div class="cards">
         {% for bien in biens %}
             <div class="card">
-                <img src="{{ bien.photo }}" alt="Avatar" style="width:350px;height:200px">
+                <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
                 <div class="container">
                     <h2><b>{{ bien.type }} de {{ bien.surfaceH }}m²</b></h2>
                     <p>{{ bien.pieces }} pièces · {{ bien.localisation }}</p>
                     <h2>{{ bien.prix }}€</h2>
+                {% if bien.surfaceT == false %}
+                    <p>Pas de terrain</p>
+                    {% else %}
                     <p>Terrain de {{ bien.surfaceT }}m²</p>
+                {% endif %}
                     <p>{{ bien.etat }}</p>
-                    <p>Nombres de pièces : </p>
+                    <div class="energieContainer">Classe énergetique: 
+                {% if bien.energie.hex != null %}
+                        <div class="energie" style="background-color:{{ bien.energie.hex }}">{{ bien.energie.colorName }}</div>
+                    {% else %}
+                        <div class="energie energieNull" >{{ bien.energie.colorName }}</div>
+                {% endif %}
+                    </div>
                     <p>{{ bien.description | u.truncate(150) }} ...</p>
                 </div>
             </div> 

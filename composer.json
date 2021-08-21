@@ -79,7 +79,8 @@
     "scripts": {
         "prepare": [
             "php bin/console d:d:d --force --if-exists",
-            "php bin/console d:d:c "
+            "php bin/console d:d:c",
+            "php bin/console d:s:u --force"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
