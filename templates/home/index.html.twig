@@ -3,10 +3,9 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <h1>{{ controller_name }}</h1>
-
-    <p>On ne va pas se mentir, acheter c’est souvent l’investissement d’une vie !</p><p>C’est pourquoi il ne faut pas se tromper. Lors de l’achat, il est important de faire les bons choix pour y vivre sereinement le temps nécessaire. Néanmoins, il ne faut pas à ce moment-là perdre de vue la revente et garder en tête que l’achat reste un investissement qui peut permettre de faire une belle plus-value.</p><p> Pour réaliser le meilleur placement, votre agent SBK IMMOBILIER vous conseillera à chaque étape de la transaction.</p>
-
+            <div class="title">
+                <h1>Nos coups de coeur</h1>
+            </div>
         <div class="cards">
         {% for bien in biens %}
             <div class="card">
@@ -14,21 +13,21 @@
                 <div class="container">
                     <h2><b>{{ bien.type }} de {{ bien.surfaceH }}m²</b></h2>
                     <p>{{ bien.pieces }} pièces · {{ bien.localisation }}</p>
-                    <h2>{{ bien.prix }}€</h2>
+                    <h2><em>{{ bien.prix }}€</em></h2>
                 {% if bien.surfaceT == false %}
                     <p>Pas de terrain</p>
                     {% else %}
                     <p>Terrain de {{ bien.surfaceT }}m²</p>
                 {% endif %}
-                    <p>{{ bien.etat }}</p>
+                    <p>Style : {{ bien.etat }}</p>
                     <div class="energieContainer">Classe énergetique: 
                 {% if bien.energie.hex != null %}
-                        <div class="energie" style="background-color:{{ bien.energie.hex }}">{{ bien.energie.colorName }}</div>
+                        <div class="energie" style="background-color:{{ bien.energie.hex }}"><p>{{ bien.energie.colorName }}</p></div>
                     {% else %}
-                        <div class="energie energieNull" >{{ bien.energie.colorName }}</div>
+                        <div class="energie energieNull" ><p>{{ bien.energie.colorName }} </p></div>
                 {% endif %}
                     </div>
-                    <p>{{ bien.description | u.truncate(150) }} ...</p>
+                    <p>Description : {{ bien.description | u.truncate(50) }} ...</p>
                 </div>
             </div> 
         {% endfor %}
