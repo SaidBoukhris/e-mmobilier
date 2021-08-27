@@ -1,11 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Bien index{% endblock %}
 
 {% block body %}
-            <div class="title">
-                <h1>Nos coups de coeur</h1>
-            </div>
         <div class="cards">
         {% for bien in biens %}
         <a href="{{ path('bien_show', {'id': bien.id}) }}">
@@ -30,8 +27,13 @@
                     </div>
                     <p>Description : {{ bien.description | u.truncate(50) }} ...</p>
                 </div>
+
+        <a href="{{ path('bien_show', {'id': bien.id}) }}">show</a>
+        <a href="{{ path('bien_edit', {'id': bien.id}) }}">edit</a>
             </div> 
         </a>
+        {% else %}
+                <p colspan="11">no records found</p>
         {% endfor %}
-        </div> 
+        </div>
 {% endblock %}

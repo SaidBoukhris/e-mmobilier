@@ -39,6 +39,10 @@ class Energie
         $this->bien = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->colorName;
+    }
     public function getId(): ?int
     {
         return $this->id;
