@@ -72,6 +72,16 @@ class Bien
      */
     private $title;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $datePublication;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $dateModification;
+
     public function __toString()
     {
         return $this->title;
@@ -210,6 +220,30 @@ class Bien
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getDatePublication(): ?\DateTimeInterface
+    {
+        return $this->datePublication;
+    }
+
+    public function setDatePublication(?\DateTimeInterface $datePublication): self
+    {
+        $this->datePublication = $datePublication;
+
+        return $this;
+    }
+
+    public function getDateModification(): ?\DateTimeInterface
+    {
+        return $this->dateModification;
+    }
+
+    public function setDateModification(?\DateTimeInterface $dateModification): self
+    {
+        $this->dateModification = $dateModification;
 
         return $this;
     }
