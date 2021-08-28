@@ -10,9 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
-    /**
-     * @Route("/", name="home")
-     */
+    #[Route("/", name:"home")]
     public function index(BienRepository $bien, EnergieRepository $energie): Response
     {
         return $this->render('home/index.html.twig', [

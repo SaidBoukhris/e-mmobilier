@@ -47,7 +47,7 @@ class BienController extends AbstractController
     public function show(Bien $bien): Response
     {
         return $this->render('bien/show.html.twig', [
-            'controller_name' => "Voir le Bien" ,
+            'controller_name' => "Voir le Bien",
             'bien' => $bien,
         ]);
     }
@@ -65,7 +65,7 @@ class BienController extends AbstractController
         }
 
         return $this->renderForm('bien/edit.html.twig', [
-            'controller_name' => "Éditer le Bien" ,
+            'controller_name' => "Éditer le Bien",
             'bien' => $bien,
             'form' => $form,
         ]);
@@ -74,7 +74,7 @@ class BienController extends AbstractController
     #[Route('/{id}', name: 'bien_delete', methods: ['POST'])]
     public function delete(Request $request, Bien $bien): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$bien->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $bien->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($bien);
             $entityManager->flush();
