@@ -82,6 +82,11 @@ class Bien
      */
     private $dateModification;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $dateCreation;
+
     public function __toString()
     {
         return $this->title;
@@ -244,6 +249,18 @@ class Bien
     public function setDateModification(?\DateTimeInterface $dateModification): self
     {
         $this->dateModification = $dateModification;
+
+        return $this;
+    }
+
+    public function getDateCreation(): ?\DateTimeInterface
+    {
+        return $this->dateCreation;
+    }
+
+    public function setDateCreation(\DateTimeInterface $dateCreation): self
+    {
+        $this->dateCreation = $dateCreation;
 
         return $this;
     }
