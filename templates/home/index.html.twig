@@ -3,35 +3,46 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-            <div class="title">
-                <h1>Nos coups de coeur</h1>
+
+<div class="head">
+    <div class="title">
+        <h1>Agence {{ controller_name }}<br> Région Occitanie</h1>
+        <h2>Transaction – location – gestion – estimation</h2>
+    </div>
+</div>
+
+<div class="title">
+    <h1>Nos coups de coeur <icon class="fa fa-heart-o"></icon></h1>
+</div>
+
+<div class="cards">
+{% for bien in biens %}
+    <a class="card" href="{{ path('bien_show', {'id': bien.id}) }}">
+        <div class="cardImage">
+            <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
+        </div>
+        <div class="cardInfo">
+            <div class="cardDetail">
+                <p class="cardDetailtitle">{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</p>
+                <p class="cardDetailprice">{{ bien.prix }}€</p>
+                <p class="cardDetailaddr">{{ bien.localisation }}</p>
+                <p class="energie">{{ bien.energie }}</p>
             </div>
-        <div class="cards">
-        {% for bien in biens %}
-        <a href="{{ path('bien_show', {'id': bien.id}) }}">
-            <div class="card">
-                <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
-                <div class="container">
-                    <h2><b>{{ bien.type }} de {{ bien.surfaceH }}m²</b></h2>
-                    <p>{{ bien.pieces }} pièces · {{ bien.localisation }}</p>
-                    <h2><em>{{ bien.prix }}€</em></h2>
-                {% if bien.surfaceT == false %}
-                    <p>Pas de terrain</p>
+            <div class="cardDate">
+                <div>
+                    {% if bien.dateModification is not null %}
+                        {{ bien.dateModification ? bien.dateModification|date('d / m') : '' }}
                     {% else %}
-                    <p>Terrain de {{ bien.surfaceT }}m²</p>
-                {% endif %}
-                    <p>Style : {{ bien.etat }}</p>
-                    <div class="energieContainer">Classe énergetique: 
-                {% if bien.energie.hex != null %}
-                        <div class="energie" style="background-color:{{ bien.energie.hex }}"><p>{{ bien.energie.colorName }}</p></div>
-                    {% else %}
-                        <div class="energie energieNull" ><p>{{ bien.energie.colorName }} </p></div>
-                {% endif %}
-                    </div>
-                    <p>Description : {{ bien.description | u.truncate(50) }} ...</p>
+                        {{ bien.dateCreation ? bien.dateCreation|date('d / m') : '' }}
+                    {% endif %}
                 </div>
-            </div> 
-        </a>
-        {% endfor %}
-        </div> 
+                <div>
+                    <icon class="fa fa-heart-o"></icon>
+                </div>
+            </div>
+        </div>
+    </a>
+{% endfor %}
+</div>
+
 {% endblock %}

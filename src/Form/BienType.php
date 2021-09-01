@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,6 +28,9 @@ class BienType extends AbstractType
             ->add('description',CKEditorType::class)
             ->add('etat',TextType::class)
             ->add('photo',UrlType::class)
+            ->add('datePublication',DateType::class)
+            ->add('dateModification',DateType::class)
+            ->add('dateCreation',DateType::class)
             ->add('energie',EntityType::class,[
                 'class' => Energie::class
             ])

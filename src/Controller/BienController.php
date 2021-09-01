@@ -38,7 +38,7 @@ class BienController extends AbstractController
         }
 
         return $this->renderForm('bien/new.html.twig', [
-            'bien' => $bien,
+            'bien' => $bien->getTitle(),
             'form' => $form,
         ]);
     }

@@ -1,0 +1,78 @@
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: .1rem 0;
+}
+.card {
+  min-width: 450px;
+  display: flex;
+  justify-content: space-between;
+  color: #2e2e2e;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+.card img {
+  width: 100%;
+  min-height: 100%;
+  border-radius: 10px;
+}
+.card:hover {
+  background-color: var(--themecolorhover);
+}
+.card .cardDetailtitle:hover {
+  color: var(--themecolor);
+}
+.cardInfo {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+.cardDetail{
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.cardDetailtitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.cardDetailprice{
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.cardDetailaddr{
+  font-size: 1rem;
+}
+.cardDate {
+  padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.energie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: rgb(255, 255, 255);
+  height: 20px;
+}
+.energie p {
+  display: flex;
+  border-radius: 5px;
+  padding: 0.2em;
+}
+.energieNull {
+  background-color: rgb(133, 133, 133);
+  height: 20px;
+}
+.energieContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

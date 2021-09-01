@@ -1,0 +1,39 @@
+.nav {
+  position: fixed;
+  padding: 0.5em;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  background-color: var(--themecolor);
+  background-image: url('/images/bg.png');
+  background-blend-mode: screen;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 1rem;
+  transition: all 1s;
+}
+.logo {
+  background-color: #48ff0000;
+  transition: all .5s;
+}
+.logo:hover {
+  scale: 1.1;
+}
+.menu {
+  background-color: #ff000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.social_nav {
+  background-color: #0026ff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

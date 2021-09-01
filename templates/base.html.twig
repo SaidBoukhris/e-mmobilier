@@ -12,33 +12,8 @@
         {% block javascripts %}{% endblock %}
     </head>
     <body>
-        <div class="nav">
-            <div class="logo">
-                <a href="{{path('home')}}" class=""><img src="{{asset('images/sbkimmo-light.png')}}" alt="SBK" style="width:100px;"></a>
-            </div>
-            <div class="menu">
-                <div><a href="#" class="item">Acheter</a></div>
-                <div><a href="#" class="item">Louer</a></div>  
-                <div><a href="#" class="item">Vendre</a></div>
-                <div><a href="#" class="item">Investir</a></div>
-                <div><a href="#" class="item">Estimer</a></div>
-                <div><a href="#" class="item">Faire gérer</a></div>
-                <div><a href="#" class="item">Contactez-nous</a></div>
-                <div><a href="#" class="item">Actualités </a></div>
-            </div>
-            <div class="social_nav">
-                <a href="#" title="Mes favoris"><i class="fa fa-heart-o fa-lg"></i></a>
-                <a href="#" title="Mon compte"><i class="fa fa-user-o fa-lg"></i></a>
-                <a href="#" title="Connexion"><i class="fa fa-sign-in fa-lg"></i></a>
-            </div>
-        </div>
-        <div class="wrapper">
-            <div class="head">
-            <div class="title">
-                <h1>Agence {{ controller_name }}<br> Région Occitanie</h1>
-                <h2>Transaction – location – gestion – estimation</h2>
-            </div>
-            </div>
+        {{ include('partials/_nav.html.twig')}}
+        <div class="base">
             {% block body %}{% endblock %}
         </div>
     </body>

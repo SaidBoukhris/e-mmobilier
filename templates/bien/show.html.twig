@@ -3,56 +3,37 @@
 {% block title %}Bien{% endblock %}
 
 {% block body %}
-    <h1>Bien</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ bien.id }}</td>
-            </tr>
-            <tr>
-                <th>Type</th>
-                <td>{{ bien.type }}</td>
-            </tr>
-            <tr>
-                <th>Localisation</th>
-                <td>{{ bien.localisation }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ bien.prix }}</td>
-            </tr>
-            <tr>
-                <th>Pieces</th>
-                <td>{{ bien.pieces }}</td>
-            </tr>
-            <tr>
-                <th>SurfaceH</th>
-                <td>{{ bien.surfaceH }}</td>
-            </tr>
-            <tr>
-                <th>SurfaceT</th>
-                <td>{{ bien.surfaceT }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ bien.description }}</td>
-            </tr>
-            <tr>
-                <th>Etat</th>
-                <td>{{ bien.etat }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ bien.photo }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('bien_index') }}">back to list</a>
-
-    <a href="{{ path('bien_edit', {'id': bien.id}) }}">edit</a>
-
-    {{ include('bien/_delete_form.html.twig') }}
+<div class="show">
+    <a href="{{ path('bien_index') }}"title="Retour"><i class="fa fa-arrow-left" style="font-size:20px;color:#18c27b"></i></a>
+    <div class="carousel">
+        <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
+        <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
+        <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
+    </div>
+    <div class="container">
+        <h2><b>{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</b></h2>
+        <p>{{ bien.pieces }} pièces · {{ bien.surfaceH }}m² ·  {{ bien.localisation }}</p>
+        <h2><em>{{ bien.prix }}€</em></h2>
+        <p>{{ bien.dateCreation ? bien.dateCreation|date('d/m/Y') : '' }}</p>
+        {% if bien.surfaceT == false %}
+            <p>Pas de terrain</p>
+        {% else %}
+            <p>Terrain de {{ bien.surfaceT }}m²</p>
+        {% endif %}
+            <p>Style : {{ bien.etat }}</p>
+            <div class="energieContainer">Classe énergie: 
+        {% if bien.energie.hex != null %}
+            <div class="energie" style="background-color:{{ bien.energie.hex }}"><p>{{ bien.energie.colorName }}</p></div>
+        {% else %}
+            <div class="energie energieNull" ><p>{{ bien.energie.colorName }} </p></div>
+        {% endif %}
+        </div>
+        <p>Description : {{ bien.description | raw}}</p>
+    </div>
+    <div class="container">
+        <i class="fa fa-heart-o"></i>
+        <a href="{{ path('bien_edit', {'id': bien.id}) }}"style="color:#18c27b">modifier</a>
+    </div>
+</div>
 {% endblock %}
