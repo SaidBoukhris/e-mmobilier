@@ -14,15 +14,16 @@
 html {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
+  scroll-behavior: smooth;
 }
 body {
-  /* background-color: rgba(0, 255, 64, 0.144);
+  background-color: var(--themecolor);
   background-image: url('/images/toulouseBanner.jpg');
   background-blend-mode: screen;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position:center;
-  background-size: contain; */
+  background-size: cover;
 }
 
 a {
@@ -41,12 +42,13 @@ a:hover {
 	base /base.html.twig
 -----------------------------------------------------------------*/
 .base {
+  background-color: rgba(255, 255, 255, 0.781);
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
   position: relative;
   top: 5rem;
   padding: 1rem;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 100%;
 }
 
 /* ----------------------------------------------------------------

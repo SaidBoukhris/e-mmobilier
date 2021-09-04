@@ -21,18 +21,22 @@ class AppFixtures extends Fixture
             $manager    -> persist($energie);
             
         }
-        for($b = 1 ; $b < 30 ; $b++) {
+        for($b = 1 ; $b < 7 ; $b++) {
                 $bien = new Bien();
-                $bien       -> setTitle('maison de campagne super vue')
-                            -> setType('maison')
-                            -> setLocalisation('Mazeres, 09270')
-                            -> setPrix(500000)
-                            -> setPieces(5)
-                            -> setSurfaceH(300)
-                            -> setSurfaceT(9000)
-                            -> setDescription('And yet I wish you could manage it? And what are they made of? Alice asked in a shrill, passionate voice. Would YOU like cats if you were never even spoke to Time! Perhaps not, Alice replied.')
-                            -> setEtat('ancien')
-                            -> setphoto($faker->imageUrl($width = 640, $height = 480))
+                $bien       -> setTitle('maison '.$faker->colorName)
+                            -> setType($faker->randomElement([
+                                'Appartement', 'Maison', 'Ferme'
+                            ]))
+                            -> setLocalisation($faker->address)
+                            -> setPrix($faker->numberBetween(15000,700000))
+                            -> setPieces($faker->numberBetween(1,10))
+                            -> setSurfaceH($faker->numberBetween(25,500))
+                            -> setSurfaceT($faker->numberBetween(0,50000))
+                            -> setDescription($faker->realText($faker->numberBetween(10, 7000)))
+                            -> setEtat($faker->randomElement([
+                                'Ancien', 'neuf'
+                            ]))
+                            -> setphoto('https://via.placeholder.com/250/18c27b/FFFFFF?text=SBKImmobilier.com')
                             -> setDateCreation($faker->dateTime($max = 'now'))
                             -> setEnergie($energie)
                             ;

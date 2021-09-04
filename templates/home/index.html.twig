@@ -8,10 +8,14 @@
     <div class="title">
         <h1>Agence {{ controller_name }}<br> Région Occitanie</h1>
         <h2>Transaction – location – gestion – estimation</h2>
+    <a class="scrolldown" href="#annonce">
+        <i style="font-size:50px;color:var(--themecolor);"class="fa fa-chevron-circle-down icon"></i>
+    </a>
     </div>
 </div>
+</br>
 
-<div class="title">
+<div id="annonce" class="title">
     <h1>Nos coups de coeur <icon class="fa fa-heart-o"></icon></h1>
 </div>
 
@@ -26,7 +30,6 @@
                 <p class="cardDetailtitle">{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</p>
                 <p class="cardDetailprice">{{ bien.prix }}€</p>
                 <p class="cardDetailaddr">{{ bien.localisation }}</p>
-                <p class="energie">{{ bien.energie }}</p>
             </div>
             <div class="cardDate">
                 <div>
