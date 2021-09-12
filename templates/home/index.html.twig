@@ -3,22 +3,6 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-
-<div class="head">
-    <div class="title">
-        <h1>Agence {{ controller_name }}<br> Région Occitanie</h1>
-        <h2>Transaction – location – gestion – estimation</h2>
-    <a class="scrolldown" href="#annonce">
-        <i style="font-size:50px;color:var(--themecolor);"class="fa fa-chevron-circle-down icon"></i>
-    </a>
-    </div>
-</div>
-</br>
-
-<div id="annonce" class="title">
-    <h1>Nos coups de coeur <icon class="fa fa-heart-o"></icon></h1>
-</div>
-
 <div class="cards">
 {% for bien in biens %}
     <a class="card" href="{{ path('bien_show', {'id': bien.id}) }}">
@@ -47,5 +31,22 @@
     </a>
 {% endfor %}
 </div>
+<h2 style="background-color:whitesmoke;">Ces annonces peuvent vous intéresser</h2>
+<div class="contain">
+{% for bien in biens %}
+    <div class="cart">
+        <h2>{{ bien.prix }}€</h2>
+        <icon class="fa fa-arrow-right"></icon>
+        <p>{{ bien.pieces }} pièces {{ bien.surfaceH }}m² {{ bien.type }} </p>
+        <div class="pic">
+                <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
+        </div>
+        <span>{{ bien.localisation }} </span>
+        <button>
+        <a href="{{ path('bien_show', {'id': bien.id}) }}"></a>
+        </button>
+    </div>
 
+{% endfor %}
+</div>
 {% endblock %}

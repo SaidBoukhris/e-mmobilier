@@ -19,6 +19,7 @@ class BienType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('title',TextType::class)
             ->add('type',TextType::class)
             ->add('localisation',TextType::class)
             ->add('prix',IntegerType::class)

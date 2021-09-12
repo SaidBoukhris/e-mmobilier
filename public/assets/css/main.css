@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
+@import "pages/show.css";
 @import "components/vars.css";
 @import "components/navbar.css";
 @import "components/banner.css";
 @import "components/cards.css";
+@import "components/carousel.css";
+@import "components/search.css";
+@import "components/test.css";
 
 * {
   box-sizing: border-box;
@@ -19,7 +23,7 @@ html {
 body {
   background-color: var(--themecolor);
   background-image: url('/images/toulouseBanner.jpg');
-  background-blend-mode: screen;
+  background-blend-mode: normal;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position:center;
@@ -42,37 +46,13 @@ a:hover {
 	base /base.html.twig
 -----------------------------------------------------------------*/
 .base {
-  background-color: rgba(255, 255, 255, 0.781);
-  max-width: 1500px;
+  max-width: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem ;
   margin: 0 auto;
   position: relative;
   top: 5rem;
-  padding: 1rem;
-}
-
-/* ----------------------------------------------------------------
-	show /bien/show.html.twig
------------------------------------------------------------------*/
-.show {
-  background-color: rgba(255, 0, 0, 0);
-  max-width: 1000px;
-  position: relative;
-  top: 15rem;
-  margin: 0 auto;
-}
-
-.container {
-  background-color: rgba(0, 26, 255, 0);
-}
-.carousel {
-  background-color: rgba(0, 255, 234, 0);
-  display: flex;
-  gap: 1rem ;
-}
-.carousel>img {
-  height: 350px !important;
-  width: 300px !important;
-  background-color: rgba(43, 255, 0, 0);
-  border-radius: 10px;
+  padding: 0;
 }

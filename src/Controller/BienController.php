@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/bien')]
 class BienController extends AbstractController
 {
-    #[Route('/', name: 'bien_index', methods: ['GET'])]
-    public function index(BienRepository $bienRepository): Response
-    {
-        return $this->render('bien/index.html.twig', [
-            'controller_name' => 'Tous nos biens',
-            'biens' => $bienRepository->findAll(),
-        ]);
-    }
+    // #[Route('/', name: 'bien_index', methods: ['GET'])]
+    // public function index(BienRepository $bienRepository): Response
+    // {
+    //     return $this->render('bien/index.html.twig', [
+    //         'controller_name' => 'Tous nos biens',
+    //         'biens' => $bienRepository->findAll(),
+    //     ]);
+    // }
 
     #[Route('/new', name: 'bien_new', methods: ['GET', 'POST'])]
     public function new(Request $request): Response
@@ -34,7 +34,9 @@ class BienController extends AbstractController
             $entityManager->persist($bien);
             $entityManager->flush();
 
-            return $this->redirectToRoute('bien_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('bien_show', [
+                'id' => $bien->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('bien/new.html.twig', [
@@ -61,7 +63,9 @@ class BienController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('bien_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('bien_show', [
+                'id' => $bien->getId()
+            ], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('bien/edit.html.twig', [
@@ -80,6 +84,6 @@ class BienController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('bien_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
     }
 }

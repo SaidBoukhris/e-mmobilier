@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>SBK immo|{% block title %}{% endblock %}</title>
+        <title>SBK immo | {% block title %}{% endblock %}</title>
         <link rel="shortcut icon" href="{{asset('favicon.ico')}}" />
         <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" />
         <!-- Font-Awesome -->
@@ -14,7 +14,9 @@
     <body>
         {{ include('partials/_nav.html.twig')}}
         <div class="base">
+        {{ include('partials/_banner.html.twig')}}
             {% block body %}{% endblock %}
         </div>
+        <script src="{{asset('assets/js/carousel.js')}}"></script>
     </body>
 </html>
