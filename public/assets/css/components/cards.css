@@ -9,11 +9,11 @@
 }
 
 .card {
-  background-color: #fff;
+  background-color: var(--white);
   min-width: 450px;
   display: flex;
   justify-content: space-between;
-  color: #2e2e2e;
+  color: var(--blueGray);
   transition: all 0.5s;
   border-radius: 5px;
 }
@@ -27,7 +27,7 @@ h2.price>em {
 }
 .card:hover {
   background-color: var(--themecolor);
-  color: white;
+  color: var(--white);
   background-image: url('/images/bg.png');
   background-blend-mode: screen;
   background-attachment: fixed;
@@ -79,7 +79,7 @@ h2.price>em {
   padding: 0.2em;
 }
 .energieNull {
-  background-color: rgb(133, 133, 133);
+  background-color: var(--blueGray);
   height: 20px;
 }
 .energieContainer {
@@ -90,7 +90,6 @@ h2.price>em {
 
 
 .contain {
-  background-color: rgba(4, 0, 255, 0);
   width: 100%;
   height: 100%;
   display: flex;
@@ -100,7 +99,7 @@ h2.price>em {
   gap: 2rem;
 }
 .contain .cart {
-  background-color: #c9c9c9;
+  background-color: var(--blueGray);
   position: relative;
   width: 400px;
   height: 200px;
@@ -118,40 +117,40 @@ h2.price>em {
   left: 5px;
   font-size: 20px;
   font-weight: 700;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 }
 .contain .cart .fa-arrow-right {
   z-index: 1;
   position: absolute;
-  color: rgb(255, 255, 255);
+  color: var(--white);
   right: 105px;
   bottom: 10px;
   font-size: 40px;
   cursor: pointer;
 }
-.contain .cart p {
+.contain .cart span{
   position: absolute;
   top: 10px;
   right: 70px;
-  color: rgba(51, 51, 51, 0);
+  color: transparent;
   opacity: 0.7;
   font-size: 20px;
   letter-spacing: 1px;
   writing-mode: vertical-lr;
   transition: all 0.2s ease;
 }
-.contain .cart:hover p {
+.contain .cart:hover span{
   z-index: 1;
   font-weight: bold;
   transform: rotateZ(-90deg);
-  color: #fff;
+  color: var(--white);
 }
 .contain .cart .pic {
   width: 400px;
   height: 200px;
   background-image: url("images/bg.png");
 }
-.contain .cart button {
+.contain .cart p {
   position: absolute;
   right:10px;
   bottom: 14px;
@@ -163,7 +162,17 @@ h2.price>em {
   cursor: pointer;
   outline: none;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.contain .cart:hover button {
+.contain .cart p a{
+  font-size: 00.5em;
+  color: var(--link);
+}
+.contain .cart:hover p {
   transform: scale(16.5);
+}
+.contain .cart:hover p a{
+  transform: scale(.1);
 }

@@ -8,14 +8,14 @@
   flex-wrap: wrap;
   gap: 1rem;
   width: 100%;
-  background-color: var(--themecolor);
+  background-color: #000000;
+  /* background-color: var(--themecolor);
   background-image: url('/images/bg.png');
   background-blend-mode: screen;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  margin-bottom: 1rem;
+  background-size: cover; */
   transition: all 1s;
 }
 .logo {
@@ -38,8 +38,14 @@
   padding: 0.5rem;
   border-radius: 5px;
 }
-.menu>div>a:hover{
+.menu>div>a{
+  font-size: 1.2em;
+  font-weight: 900;
   color: white;
+}
+.menu>div>a:hover{
+  /* background-color: rgb(170, 248, 238); */
+  color: gray;
 }
 .social_nav {
   background-color: #0026ff00;
@@ -47,7 +53,11 @@
   justify-content: center;
   align-items: center;
 }
+.social_nav>a {
+  color: rgb(255, 255, 255);
+}
 #search {
+  color: rgb(126, 126, 126);
   background-image: url('/images/searchicon.png');
   background-position: 10px 12px;
   background-repeat: no-repeat;

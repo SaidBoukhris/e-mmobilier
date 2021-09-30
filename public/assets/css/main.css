@@ -21,8 +21,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: var(--themecolor);
-  background-image: url('/images/toulouseBanner.jpg');
+  /* background-color: var(--themecolor); */
+  /* background-image: url('/images/toulouseBanner.jpg'); */
   background-blend-mode: normal;
   background-attachment: fixed;
   background-repeat: no-repeat;

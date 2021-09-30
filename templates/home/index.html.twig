@@ -13,7 +13,7 @@
             <div class="cardDetail">
                 <p class="cardDetailtitle">{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</p>
                 <p class="cardDetailprice">{{ bien.prix }}€</p>
-                <p class="cardDetailaddr">{{ bien.localisation }}</p>
+                <p class="cardDetailaddr">{{ bien.ville }}</p>
             </div>
             <div class="cardDate">
                 <div>
@@ -37,14 +37,15 @@
     <div class="cart">
         <h2>{{ bien.prix }}€</h2>
         <icon class="fa fa-arrow-right"></icon>
-        <p>{{ bien.pieces }} pièces {{ bien.surfaceH }}m² {{ bien.type }} </p>
+        <span>{{ bien.pieces }} pièces {{ bien.surfaceH }}m² {{ bien.type }}</span>
+        <span>{{ bien.ville }}</span>
         <div class="pic">
                 <img src="{{ bien.photo }}" alt="image du bien" style="width:350px;height:200px">
         </div>
-        <span>{{ bien.localisation }} </span>
-        <button>
-        <a href="{{ path('bien_show', {'id': bien.id}) }}"></a>
-        </button>
+        <p>
+        
+        <a href="{{ path('bien_show', {'id': bien.id}) }}">VOIR</a>
+        </p>
     </div>
 
 {% endfor %}

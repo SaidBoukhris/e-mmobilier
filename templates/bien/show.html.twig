@@ -4,59 +4,62 @@
 
 {% block body %}
 
-<div class="show">
-    <a href="{{ path('home') }}" title="Retour"><i class="fa fa-arrow-left" style="font-size:40px;color:#18c27b"></i></a>
-    <div>
-        <div class="slideshow-container">
-            <div class="mySlides fade">
-                <img src="{{ bien.photo }}" alt="image du bien">
-                <img src="{{ bien.photo }}" alt="image du bien">
-                <img src="{{ bien.photo }}" alt="image du bien">
-                <div class="text">Caption Text</div>
-            </div>
-            <div class="mySlides fade">
-                <img src="{{ bien.photo }}" alt="image du bien">
-                <div class="text">Caption Text</div>
-            </div>
-            <div class="mySlides fade">
-                <img src="{{ bien.photo }}" alt="image du bien">
-                <div class="text">Caption Text</div>
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span> 
-            <span class="dot" onclick="currentSlide(2)"></span> 
-            <span class="dot" onclick="currentSlide(3)"></span> 
-        </div>
+<div class="containerShow">
+    <div class="">
+        <a href="{{ path('home') }}" title="Retour"><i class="fa fa-arrow-left" style="font-size:40px;color:#18c27b"></i></a>
     </div>
-    <div class="container">
-        <h2><b>{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</b></h2>
-        <p>{{ bien.pieces }} pièces · {{ bien.surfaceH }}m² ·  {{ bien.localisation }}</p>
-        <h2 class="price"><em>{{ bien.prix }}€</em></h2>
-        <p>{{ bien.dateCreation ? bien.dateCreation|date('d/m/Y') : '' }}</p>
-        {% if bien.surfaceT == false %}
-            <p>Pas de terrain</p>
-        {% else %}
-            <p>Terrain de {{ bien.surfaceT }}m²</p>
-        {% endif %}
-            <p>Style : {{ bien.etat }}</p>
-            <div class="energieContainer">Classe énergie: 
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="{{ bien.photo }}" alt="image du bien">
+            <img src="{{ bien.photo }}" alt="image du bien">
+            <img src="{{ bien.photo }}" alt="image du bien">
+            <div class="text">Caption Text</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="{{ bien.photo }}" alt="image du bien">
+            <div class="text">Caption Text</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="{{ bien.photo }}" alt="image du bien">
+            <div class="text">Caption Text</div>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <h2><b>{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</b></h2>
+    <p>{{ bien.pieces }} pièces · {{ bien.surfaceH }}m² ·  {{ bien.localisation }}</p>
+    <h2 class="price"><em>{{ bien.prix }}€</em></h2>
+    <p>{{ bien.dateCreation ? bien.dateCreation|date('d/m/Y') : '' }}</p>
+    {% if bien.surfaceT == false %}
+        <p>Pas de terrain</p>
+    {% else %}
+        <p>Terrain de {{ bien.surfaceT }}m²</p>
+    {% endif %}
+    <p>Style : {{ bien.etat }}</p>
+
+    <div class="energieContainer">Classe énergie: 
         {% if bien.energie.hex != null %}
-            <div class="energie" style="background-color:{{ bien.energie.hex }}"><p>{{ bien.energie.colorName }}</p></div>
+        <div class="energie" style="background-color:{{ bien.energie.hex }}"><p>{{ bien.energie.colorName }}</p></div>
         {% else %}
-            <div class="energie energieNull" ><p>{{ bien.energie.colorName }} </p></div>
+        <div class="energie energieNull" ><p>{{ bien.energie.colorName }} </p></div>
         {% endif %}
-        </div>
-        <p>Description : {{ bien.description | raw}}</p>
     </div>
-    <div class="container">
+
+    <div class="desc">Description : {{ bien.description | raw}}</div>
+
+    <div class="">
         <i class="fa fa-heart-o"></i>
         <a href="{{ path('bien_edit', {'id': bien.id}) }}"style="color:#18c27b">modifier</a>
     </div>
+
 </div>
 {% endblock %}

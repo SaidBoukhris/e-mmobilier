@@ -1,15 +1,20 @@
 /* ----------------------------------------------------------------
 	show /bien/show.html.twig
 -----------------------------------------------------------------*/
-.show {
-  background-color: rgb(255, 255, 255);
+.containerShow {
+  background-color: var(--white);
   padding: 1rem;
-  margin: 0 auto;
+  font-size: var(--fontLarge);
 }
 
 .container {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--white);
   display: flex;
+  width: 100%;
   flex-direction: column;
   gap: 1rem ;
+}
+.container .desc {
+  padding: 1rem;
+  text-align: justify;
 }

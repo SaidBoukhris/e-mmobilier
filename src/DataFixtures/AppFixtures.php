@@ -28,6 +28,8 @@ class AppFixtures extends Fixture
                                 'Appartement', 'Maison', 'Ferme'
                             ]))
                             -> setLocalisation($faker->address)
+                            -> setVille($faker->departmentName)
+                            -> setCp($faker->departmentNumber)
                             -> setPrix($faker->numberBetween(15000,700000))
                             -> setPieces($faker->numberBetween(1,10))
                             -> setSurfaceH($faker->numberBetween(25,500))

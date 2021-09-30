@@ -1,17 +1,26 @@
 :root {
+	--textWhite: #ffffff;
+	--textGray: #7e7e7e;
+	--textBlack: #181818;
 	--themecolor: #18c27b;
 	--themecolorhover: #18c27b34;
 	--themecolorhoverfont: #ffffff;
 	--shadow: #00000015;
 	--bg-color:#E6E5E1;
 	--shdow-gray:#d3d3d5;
-	--orange:#DA4D1D;
-	--blue:#2b26c3;
+	--yellow:#ffd458;
+	--white:#fcdfdc;
+	--light:#c9c9c9;
+	--blueGray:#a5b3bf;
+	--dark:#0c0d0e;
+	--link:#002499;
 	--img-url:"https://images.unsplash.com/photo-1525543907410-b2562b6796d6?ixlib=rb-0.3.5&s=9ff8e5e718a6a40cbd0e1471235912f4&auto=format&fit=crop&w=3452&q=80";
 	--img-url2: "https://images.unsplash.com/photo-1528785198459-ec50485704c7?ixlib=rb-0.3.5&s=3a2fc3039516555bbb2e9cd2967bd321&auto=format&fit=crop&w=1537&q=80";
+	--fontLarge: 26px;
 }
 
 h1,h2,h3,h4,h5,h6 {
+	color: var(--textWhite);
 	font-weight: 600;
 	line-height: 1.5;
 	margin: 0 0 30px 0;

@@ -1,12 +1,30 @@
+{% if bien.photo is defined %}
+<div class="head" style="background-image: url({{asset(bien.photo)}});">
+        <div class="title">
+            <h1>{{ bien.prix }} €</h1>
+            <h2>{{ bien.type }} {{ bien.pieces }} pièces {{ bien.surfaceH }}m²</h2>
+            <a class="scrolldown" href="#annonce">
+                <icon style="font-size:50px;color:white;"class="fa fa-chevron-circle-down icon"></icon>
+            </a>
+        </div>
+    {% else %}
 <div class="head">
-    <div class="title">
-        <h1>Agence {{ controller_name }}<br> Région Occitanie</h1>
-        <h2>Transaction – location – gestion – estimation</h2>
-        <a class="scrolldown" href="#annonce">
-            <icon style="font-size:50px;color:white;"class="fa fa-chevron-circle-down icon"></icon>
-        </a>
-    </div>
+        <div class="title">
+            <h1>Agence {{ controller_name }}<br> Région Occitanie</h1>
+            <h2>Transaction – location – gestion – estimation</h2>
+            <a class="scrolldown" href="#annonce">
+                <icon style="font-size:50px;color:white;"class="fa fa-chevron-circle-down icon"></icon>
+            </a>
+        </div>
+    {% endif %}
 </div>
-<div id="annonce" class="title">
+<div id="annonce" class="title"></br>
+
+</br>
+</br>
+{% if bien.description is defined %}
+    <h2>{{ bien.type }} en {{ bien.ville }}</h2>
+    {% else %}
     <h1>Nos coups de coeur <icon class="fa fa-heart-o"></icon></h1>
+    {% endif %}
 </div>
